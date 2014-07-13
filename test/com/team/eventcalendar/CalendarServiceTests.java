@@ -4,6 +4,7 @@ package com.team.eventcalendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
 
 import java.util.Arrays;
 import java.util.GregorianCalendar;
@@ -18,6 +19,8 @@ import static org.mockito.Mockito.*;
  */
 public class CalendarServiceTests {
 
+    @Mock CalendarService calendarService; // used in testCreateEvent()
+
     @Test
     public void testCreateEvent() throws Exception{
 
@@ -27,11 +30,11 @@ public class CalendarServiceTests {
 
         Event expectedEvent = new Event.EventBuilder().description(inputName).attenders(attendersList).date(new GregorianCalendar(2014, 10, 25)).uuid(UUID.randomUUID()).build();
 
-        CalendarService calendarService = mock(CalendarService.class);
+        calendarService = mock(CalendarService.class);
         when(calendarService.createEvent(inputName,attendersList,new GregorianCalendar(2014, 10, 25), expectedEvent.getEventUuid())).thenReturn(expectedEvent);
 
-        EventHelperImpl eventHelper = new EventHelperImpl();
-        CalendarService calendarServiceReal = new CalendarService(eventHelper);
+        EventHelperImpl eventHelperImpl = new EventHelperImpl();
+        CalendarService calendarServiceReal = new CalendarService(eventHelperImpl);
 
         Event realEvent = calendarServiceReal.createEvent(inputName,attendersList,new GregorianCalendar(2014, 10, 25), expectedEvent.getEventUuid());
         Assert.assertEquals("", expectedEvent ,realEvent);
