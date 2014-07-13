@@ -66,10 +66,14 @@ public class Event {
         final StringBuilder sb = new StringBuilder("Event{");
         sb.append("description='").append(description).append('\'');
         sb.append(", attenders=").append(attenders);
-        sb.append(", date=").append(date);
+        sb.append(", date=[").append(dateToString(date)).append("]");
         sb.append(", eventUuid=").append(eventUuid);
         sb.append('}');
         return sb.toString();
+    }
+
+    public String dateToString(GregorianCalendar date) {
+        return date.getTime().toString();
     }
 
     public static class EventBuilder{
