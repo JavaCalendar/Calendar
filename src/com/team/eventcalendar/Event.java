@@ -12,12 +12,13 @@ public class Event {
     private final String description;
     private final List<String> attenders; //user email
     private final GregorianCalendar date;
-    private final UUID eventUuid = UUID.randomUUID();
+    private final UUID eventUuid;
 
     private  Event(EventBuilder builder){
         this.description = builder.description;
         this.attenders = builder.attenders;
         this.date = builder.date;
+        this.eventUuid = builder.eventUuid;
     }
 
     public String getDescription() {
@@ -99,6 +100,11 @@ public class Event {
 
         public EventBuilder date(GregorianCalendar date){
             this.date = date;
+            return this;
+        }
+
+        public EventBuilder uuid(UUID eventUuid){
+            this.eventUuid = eventUuid;
             return this;
         }
 

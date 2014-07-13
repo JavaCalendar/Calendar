@@ -3,10 +3,7 @@ package com.team.eventcalendar;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by dmitriy on 7/6/14.
@@ -32,7 +29,7 @@ public class Main {
         CalendarService calendarService = (CalendarService) context.getBean("calendarService");
 
         for(int k = 0; k < descriptionsList.size(); k++){
-        calendarService.addEvent(calendarService.createEvent(descriptionsList.get(k), attendersList, datesList.get(k)));
+        calendarService.addEvent(calendarService.createEvent(descriptionsList.get(k), attendersList, datesList.get(k), UUID.randomUUID()));
         }
 
         calendarService.showCalendar();

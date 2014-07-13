@@ -28,8 +28,8 @@ public class EventHelperImpl implements EventHelper {
     }
 
     @Override
-    public Event createEvent(String description, List<String> attenders, GregorianCalendar date) {
-        return new Event.EventBuilder().description(description).attenders(attenders).date(date).build();
+    public Event createEvent(String description, List<String> attenders, GregorianCalendar date, UUID eventUuid) {
+        return new Event.EventBuilder().description(description).attenders(attenders).date(date).uuid(eventUuid).build();
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface EventHelper {
 
     Event removeEvent(UUID id);
 
-    Event createEvent(String description, List<String> attenders, GregorianCalendar date);
+    Event createEvent(String description, List<String> attenders, GregorianCalendar date, UUID eventUuid);
 
     void addEvent(Event event);
 }

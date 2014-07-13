@@ -21,8 +21,8 @@ public class CalendarService {
         return eventResource.removeEvent(id);
     }
 
-    public Event createEvent(String description, List<String> attenders, GregorianCalendar date) {
-       return eventResource.createEvent(description, attenders, date);
+    public Event createEvent(String description, List<String> attenders, GregorianCalendar date, UUID eventUuid) {
+       return eventResource.createEvent(description, attenders, date, eventUuid);
     }
 
     public void addEvent(Event event){
