@@ -10,7 +10,7 @@ import java.util.UUID;
  */
 public class Event {
     private final String description;
-    private final List<String> attenders; //user email
+    private final List<String> attenders; //users emails
     private final GregorianCalendar date;
     private final UUID eventUuid;
 
@@ -66,14 +66,10 @@ public class Event {
         final StringBuilder sb = new StringBuilder("Event{");
         sb.append("description='").append(description).append('\'');
         sb.append(", attenders=").append(attenders);
-        sb.append(", date=[").append(dateToString(date)).append("]");
+        sb.append(", date=[").append(date.getTime().toString()).append("]");
         sb.append(", eventUuid=").append(eventUuid);
         sb.append('}');
         return sb.toString();
-    }
-
-    public String dateToString(GregorianCalendar date) {
-        return date.getTime().toString();
     }
 
     public static class EventBuilder{
