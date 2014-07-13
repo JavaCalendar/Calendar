@@ -35,6 +35,8 @@ public class EventHelperImpl implements EventHelper {
     @Override
     public void addEvent(Event event) {
         dataSource.put(event.getEventUuid(), event);
+        /*System.out.println("MAPA==>"+dataSource.toString());
+        System.out.println("KEYs==>"+dataSource.keySet().toString());*/
     }
 
     public void showCalendar() {
