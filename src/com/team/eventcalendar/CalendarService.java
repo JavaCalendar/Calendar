@@ -9,8 +9,9 @@ public class CalendarService {
 
     private final EventHelperImpl eventResource;
 
-
-    public CalendarService(EventHelperImpl eventResource){this.eventResource = eventResource;}
+    public CalendarService(EventHelperImpl eventResource) {
+        this.eventResource = eventResource;
+    }
 
     public Event findEventById(UUID id) {
         return eventResource.findEventById(id);
@@ -24,8 +25,8 @@ public class CalendarService {
        return eventResource.createEvent(description, attenders, date);
     }
 
-    public void addEvent(UUID id, Event event){
-        eventResource.addEvent(id, event);
+    public void addEvent(Event event){
+        eventResource.addEvent(event);
     }
 
     public void showCalendar(){

@@ -13,5 +13,5 @@ public interface EventHelper {
 
     Event createEvent(String description, List<String> attenders, GregorianCalendar date);
 
-    void addEvent(UUID id,Event event);
+    void addEvent(Event event);
 }
