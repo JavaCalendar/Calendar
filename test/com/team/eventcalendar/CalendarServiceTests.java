@@ -62,4 +62,24 @@ public class CalendarServiceTests {
         assertEquals(new GregorianCalendar(2014, 10, 25), arg2.getValue());
         assertEquals(expectedEvent.getEventUuid(), arg3.getValue());
     }
+
+    @Test
+    public void testRemoveEvent() throws Exception {
+        String inputName = "Team meeting";
+        String[] attenders = new String[]{"mike@mail.com", "troy@i.ua", "jimmy@gmail.com"};
+        List<String> attendersList = Arrays.asList(attenders);
+        UUID eventUuid = UUID.randomUUID();
+
+        Event expectedEvent = new Event.EventBuilder().
+                description(inputName).
+                attenders(attendersList).
+                date(new GregorianCalendar(2014, 10, 25)).
+                uuid(eventUuid).
+                build();
+
+        CalendarService calendarService = mock(CalendarService.class);
+        when(calendarService.removeEvent(expectedEvent.getEventUuid())).thenReturn(expectedEvent);
+
+        Assert.assertEquals(expectedEvent.getEventUuid(), eventUuid);
+    }
 }
